@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "smoothchat",
+  "version": "${version}",
+  "name": "Smooth Chat",
+  "description": "Smooth Chat",
+  "authors": [
+    "Levoment"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+  "license": "The Unlicense",
+  "icon": "assets/smoothchat/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.levoment.smoothchat.fabric.SmoothChatModFabric"
+    ],
+    "client": [
+      "com.github.levoment.smoothchat.fabric.SmoothChatModClient"
+    ]
+  },
+  "mixins": [
+    "smoothchat.mixins.json",
+    "smoothchat-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.19",
+    "architectury": ">=5.7.28"
+  }
+}

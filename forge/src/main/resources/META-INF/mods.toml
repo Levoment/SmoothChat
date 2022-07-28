@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[41,)"
+#issueTrackerURL = ""
+license = "The Unlicense"
+
+[[mods]]
+modId = "smoothchat"
+version = "${version}"
+displayName = "Smooth Chat"
+authors = "Levoment"
+description = '''
+Smooth Chat
+'''
+#logoFile = ""
+
+[[dependencies.examplemod]]
+modId = "forge"
+mandatory = true
+versionRange = "[41,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.smoothchat]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.smoothchat]]
+modId = "architectury"
+mandatory = true
+versionRange = "[5.7.28,)"
+ordering = "AFTER"
+side = "BOTH"

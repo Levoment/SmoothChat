@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.github.levoment.smoothchat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "CommonMixinChatHud",
+    "MixinChatScreen"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
