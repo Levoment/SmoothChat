@@ -7,7 +7,8 @@
 Mod for making the chat smoothly move upwards whenever sending/receiving a message.
 The mod is available in Fabric and Forge.
 
-![Sample](./resources/SmoothChat.mp4)
+https://user-images.githubusercontent.com/30224138/181398036-bd8b44a8-52ae-4ec1-8ca5-501ff1046f89.mp4
+
 
 ## Requirements
 
