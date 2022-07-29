@@ -59,6 +59,7 @@ remapJar {
 
 jar {
     classifier "dev"
+    project.archivesBaseName = "${rootProject.archives_base_name}-forge"
 }
 
 
