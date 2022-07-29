@@ -1,3 +1,5 @@
+import org.gradle.api.internal.file.copy.CopyAction
+
 plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
@@ -53,7 +55,7 @@ remapJar {
 
 jar {
     classifier "dev"
-    project.archivesBaseName = "${rootProject.archives_base_name} Fabric "
+    project.archivesBaseName = "${rootProject.archives_base_name}-fabric"
 }
 
 sourcesJar {

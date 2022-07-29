@@ -48,4 +48,10 @@ allprojects {
     java {
         withSourcesJar()
     }
+
+    jar {
+        // Copy the license
+        from("UNLICENSE") {
+        }
+    }
 }
