@@ -14,13 +14,11 @@ https://user-images.githubusercontent.com/30224138/181398036-bd8b44a8-52ae-4ec1-
 
 ### Fabric:
 
-[![Requires Fabric API](./resources/requires-fabric-api.svg)](https://github.com/FabricMC/fabric)
-
-[![Requires Architectury](./resources/requires-architectury.svg)](https://github.com/architectury/architectury-api)
+[![Requires Fabric API](./resources/requires-fabric-api-2.svg)](https://github.com/FabricMC/fabric)
 
 ### Forge:
 
-[![Requires Architectury](./resources/requires-architectury.svg)](https://github.com/architectury/architectury-api)
+[![Requires Architectury](./resources/requires-architectury-2.svg)](https://github.com/architectury/architectury-api)
 
 ## Commands
 
