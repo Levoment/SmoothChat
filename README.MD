@@ -56,7 +56,7 @@ This instance looks like
 - `SmoothChat` - a boolean that indicates whether the smooth chat is enabled or not
 - `TransitionTimeFloat` - a float specifying the time for the transition in seconds or fractions of a second
 - `LeftToRight` - a boolean specifying if the animation should be from left to right. Mutually exclusive with **Upwards**
-- `Upward` - a float specifying whether the animation should be upwards. Mutually exclusive with **LeftToRight**
+- `Upward` - a boolean specifying whether the animation should be upwards. Mutually exclusive with **LeftToRight**
 
 ## License
 
