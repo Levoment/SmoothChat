@@ -57,8 +57,9 @@ public abstract class MixinChatHud {
                     // If the message is the last message
                     if (n == 0) {
                         smoothChatFinalXPosition = -this.client.textRenderer.getWidth(chatHudLine.getText());
+                        float easeOutCubicPosition = SmoothChatMod.easeOut(percentageComplete);
                         // Get the position for the text in the x coordinate
-                        float lerpPosition = SmoothChatMod.lerpChat(0, this.client.textRenderer.getWidth(chatHudLine.getText()), percentageComplete);
+                        float lerpPosition = SmoothChatMod.lerpChat(0, this.client.textRenderer.getWidth(chatHudLine.getText()), easeOutCubicPosition);
                         SmoothChatMod.smoothChatLerpedPosition = lerpPosition;
                         SmoothChatMod.smoothChatFinalYPosition = (float) t  + (float) l;
                         SmoothChatMod.smoothChatOrderedText = chatHudLine.getText();

@@ -1,10 +1,8 @@
 package com.github.levoment.smoothchat;
 
 import com.google.common.base.Suppliers;
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import dev.architectury.platform.Platform;
 import dev.architectury.registry.registries.Registries;
-import net.minecraft.client.network.ClientCommandSource;
 import net.minecraft.text.OrderedText;
 import net.minecraft.util.math.MathHelper;
 
@@ -41,6 +39,10 @@ public class SmoothChatMod {
 
     public static float lerpChat(double startY, double endY, double delta) {
         return MathHelper.lerp((float) delta, (float) startY, (float) endY);
+    }
+
+    public static float easeOut(float progress) {
+        return (float) (1f - Math.pow(1f - progress, 3));
     }
 
 }
