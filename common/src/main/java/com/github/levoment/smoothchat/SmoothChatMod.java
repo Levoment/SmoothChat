@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 public class SmoothChatMod {
     public static boolean finishSmoothTransition = false;
     public static float smoothChatIncreaseVisibleHeight = 0f;
-    public static float smoothChatIncreaseVisibleWidth = 0;
+    public static float smoothChatFinalXPosition = 0;
     public static OrderedText smoothChatOrderedText;
     public static float smoothChatFinalYPosition;
     public static float smoothChatLerpedPosition;
@@ -43,7 +43,4 @@ public class SmoothChatMod {
         return MathHelper.lerp((float) delta, (float) startY, (float) endY);
     }
 
-    public static LiteralArgumentBuilder<ClientCommandSource> literal(String name) {
-        return LiteralArgumentBuilder.literal(name);
-    }
 }

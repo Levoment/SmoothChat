@@ -17,6 +17,8 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import java.time.Duration;
 import java.time.Instant;
 
+import static com.github.levoment.smoothchat.SmoothChatMod.smoothChatFinalXPosition;
+
 
 @Mixin(ChatHud.class)
 public abstract class MixinChatHud {
@@ -40,11 +42,30 @@ public abstract class MixinChatHud {
                 float elapsedTime = (float) Duration.between(SmoothChatMod.start, currentTime).toMillis() / 1000;
                 // Get the percentage
                 float percentageComplete = elapsedTime / SmoothChatMod.configurationObject.TransitionTimeFloat;
-                // Get the position for the text in the y coordinate
-                float lerpPosition = SmoothChatMod.lerpChat(0.0, this.client.textRenderer.fontHeight - 1, percentageComplete);
-                SmoothChatMod.smoothChatLerpedPosition = lerpPosition;
-                SmoothChatMod.smoothChatFinalYPosition = (float) last;
-                SmoothChatMod.smoothChatOrderedText = chatHudLine.getText();
+
+                if (SmoothChatMod.configurationObject.LeftToRight) {
+                    // If the message is the last message
+                    if (n == 0) {
+                        smoothChatFinalXPosition = -this.client.textRenderer.getWidth(chatHudLine.getText());
+                        // Get the position for the text in the x coordinate
+                        float lerpPosition = SmoothChatMod.lerpChat(0, this.client.textRenderer.getWidth(chatHudLine.getText()), percentageComplete);
+                        SmoothChatMod.smoothChatLerpedPosition = lerpPosition;
+                        SmoothChatMod.smoothChatFinalYPosition = (float) last  + (float) l;
+                        SmoothChatMod.smoothChatOrderedText = chatHudLine.getText();
+                    } else {
+                        smoothChatFinalXPosition = 0;
+                        SmoothChatMod.smoothChatLerpedPosition = 0;
+                        SmoothChatMod.smoothChatFinalYPosition = (float) last  + (float) l;
+                        SmoothChatMod.smoothChatOrderedText = chatHudLine.getText();
+                    }
+                } else {
+                    // Get the position for the text in the y coordinate
+                    float lerpPosition = SmoothChatMod.lerpChat(0.0, this.client.textRenderer.fontHeight - 1, percentageComplete);
+                    SmoothChatMod.smoothChatLerpedPosition = lerpPosition;
+                    SmoothChatMod.smoothChatFinalYPosition = (float) last;
+                    SmoothChatMod.smoothChatOrderedText = chatHudLine.getText();
+                }
+
                 // Write the text
                 // this.client.textRenderer.drawWithShadow(matrices, chatHudLine.getText(), 0.0f, (float) t - lerpPosition, 0xFFFFFF + (q << 24));
                 if (percentageComplete >= 1.0f) {

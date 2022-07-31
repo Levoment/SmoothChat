@@ -54,5 +54,29 @@ public class SmoothChatModClient implements ClientModInitializer {
                 return 1;
             })));
         });
+
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            dispatcher.register(ClientCommandManager.literal("smoothchat").then(ClientCommandManager.literal("upward-animation").then(ClientCommandManager.argument("true/false", BoolArgumentType.bool()).executes(context -> {
+                // Get the argument
+                Boolean enabled = context.getArgument("true/false", Boolean.class);
+                Entity playerEntity = context.getSource().getEntity();
+                if (playerEntity != null && enabled != null) {
+                    CommonCommands.toggleUpwardAnimation(enabled, playerEntity);
+                }
+                return 1;
+            }))));
+        });
+
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            dispatcher.register(ClientCommandManager.literal("smoothchat").then(ClientCommandManager.literal("left-right-animation").then(ClientCommandManager.argument("true/false", BoolArgumentType.bool()).executes(context -> {
+                // Get the argument
+                Boolean enabled = context.getArgument("true/false", Boolean.class);
+                Entity playerEntity = context.getSource().getEntity();
+                if (playerEntity != null && enabled != null) {
+                    CommonCommands.toggleLeftToRightAnimation(enabled, playerEntity);
+                }
+                return 1;
+            }))));
+        });
     }
 }

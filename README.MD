@@ -24,11 +24,21 @@ https://user-images.githubusercontent.com/30224138/181398036-bd8b44a8-52ae-4ec1-
 
 ## Commands
 
+| Command                                       | Description                                                               | Side   |
+|-----------------------------------------------|---------------------------------------------------------------------------|--------|
+| `/smoothchat reset`                           | resets all the values to default                                          | Client |
+| `/smoothchat true/false`                      | activates or deactivates the smooth chat                                  | Client |
+| `/smoothchat speed <float-seconds>`           | sets the time in seconds or fractions of a second for the chat transition | Client |
+| `/smoothchat config reload`                   | loads the values set in the configuration file for the mod                | Client |
+| `/smoothchat upward-animation true/false`     | toggles the **Upward** animation                                          | Client |
+| `/smoothchat left-right-animation true/false` | toggles the **Left To Right** animation                                   | Client |
+
 - `/smoothchat reset` - resets all the values to default
 - `/smoothchat true/false` - activates or deactivates the smooth chat
 - `/smoothchat speed <float-seconds>` - sets the time in seconds or fractions of a second for the chat transition
 - `/smoothchat config reload` - loads the values set in the configuration file for the mod
-
+- `/smoothchat upward-animation true/false` - toggles the **Upward** animation
+- `/smoothchat left-right-animation true/false` - toggles the **Left To Right** animation
 ## Configuration
 
 The mod creates a file named `smoothchat-config.json` in the config directory of the game instance.
@@ -37,13 +47,16 @@ This instance looks like
 ```json
 {
   "SmoothChat": true,
-  "TransitionTimeFloat": 0.5
+  "TransitionTimeFloat": 0.5,
+  "LeftToRight": true,
+  "Upward": false
 }
 ```
 
 - `SmoothChat` - a boolean that indicates whether the smooth chat is enabled or not
 - `TransitionTimeFloat` - a float specifying the time for the transition in seconds or fractions of a second
-
+- `LeftToRight` - a boolean specifying if the animation should be from left to right. Mutually exclusive with **Upwards**
+- `Upward` - a float specifying whether the animation should be upwards. Mutually exclusive with **LeftToRight**
 
 ## License
 

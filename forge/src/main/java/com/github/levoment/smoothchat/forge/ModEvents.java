@@ -69,6 +69,38 @@ public class ModEvents {
                 }))
         );
 
+        registerClientCommandsEvent.getDispatcher().register(
+                CommandManager.literal("smoothchat").then(CommandManager.literal("upward-animation").then(CommandManager.argument("true/false", BoolArgumentType.bool()).executes(context -> {
+                    // Get the argument
+                    Boolean downUpAnimationEnabled = context.getArgument("true/false", Boolean.class);
+                    if (downUpAnimationEnabled != null) {
+                        // Get the float value and player
+                        if (context.getSource() instanceof ClientCommandSourceStack clientCommandSourceStack) {
+                            Entity entity = clientCommandSourceStack.getEntity();
+                            // Change the animation speed
+                            CommonCommands.toggleUpwardAnimation(downUpAnimationEnabled, entity);
+                        }
+                    }
+                    return 1;
+                }))
+        ));
+
+        registerClientCommandsEvent.getDispatcher().register(
+                CommandManager.literal("smoothchat").then(CommandManager.literal("left-right-animation").then(CommandManager.argument("true/false", BoolArgumentType.bool()).executes(context -> {
+                            // Get the argument
+                            Boolean leftToRightAnimationEnabled = context.getArgument("true/false", Boolean.class);
+                            if (leftToRightAnimationEnabled != null) {
+                                // Get the float value and player
+                                if (context.getSource() instanceof ClientCommandSourceStack clientCommandSourceStack) {
+                                    Entity entity = clientCommandSourceStack.getEntity();
+                                    // Change the animation speed
+                                    CommonCommands.toggleLeftToRightAnimation(leftToRightAnimationEnabled, entity);
+                                }
+                            }
+                            return 1;
+                        }))
+                ));
+
         // Register all the commands
         ConfigCommand.register(registerClientCommandsEvent.getDispatcher());
     }
